@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import { TestContext } from '@/app/lib/test.context';
 
 export default function StyledComponentsRegistry({ children, }: { children: React.ReactNode }) {
 	const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
@@ -17,7 +18,9 @@ export default function StyledComponentsRegistry({ children, }: { children: Reac
 
 	return (
 		<StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-			{children}
+			<TestContext.Provider value="some value">
+				{children}
+			</TestContext.Provider>
 		</StyleSheetManager>
 	);
 }

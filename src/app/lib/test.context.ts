@@ -2,4 +2,4 @@
 
 import { createContext } from 'react';
 
-export const TestContext = createContext('test');
+export const TestContext = createContext<string | undefined>(undefined);

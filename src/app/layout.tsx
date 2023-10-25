@@ -1,16 +1,17 @@
 import StyledComponentsRegistry from './lib/registry';
 import React from 'react';
-import { TestContext } from '@/app/lib/test.context';
+import '@oict/standard-design-prague/dist/index.css';
+import { StandardDesignProvider } from '@oict/standard-design-prague';
 
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
 	return (
 		<html>
 		<body>
-		<StyledComponentsRegistry>
-			<TestContext.Provider value="some value">
+		<StandardDesignProvider>
+			<StyledComponentsRegistry>
 				{children}
-			</TestContext.Provider>
-		</StyledComponentsRegistry>
+			</StyledComponentsRegistry>
+		</StandardDesignProvider>
 		</body>
 		</html>
 	);
